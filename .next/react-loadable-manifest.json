@@ -1,0 +1,20 @@
+{
+  "../node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js -> ./keyless-creator-reader.js": {
+    "id": "../node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js -> ./keyless-creator-reader.js",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_clerk_nextjs_dist_esm_app-router_client_keyless-creator-reader_js.js"
+    ]
+  },
+  "../node_modules/@clerk/nextjs/dist/esm/app-router/client/keyless-cookie-sync.js -> ../keyless-actions.js": {
+    "id": "../node_modules/@clerk/nextjs/dist/esm/app-router/client/keyless-cookie-sync.js -> ../keyless-actions.js",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_clerk_nextjs_dist_esm_app-router_keyless-actions_js.js"
+    ]
+  },
+  "../node_modules/@stream-io/video-react-sdk/dist/index.es.js -> ./latency-chart-Bj5OSYzg.es.js": {
+    "id": "../node_modules/@stream-io/video-react-sdk/dist/index.es.js -> ./latency-chart-Bj5OSYzg.es.js",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_stream-io_video-react-sdk_dist_latency-chart-Bj5OSYzg_es_js.js"
+    ]
+  }
+}

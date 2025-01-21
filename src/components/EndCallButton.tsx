@@ -11,7 +11,9 @@ function EndCallButton() {
   const { useLocalParticipant } = useCallStateHooks();
   const localParticipant = useLocalParticipant();
 
-  const updateInterviewStatus = useMutation(api.interviews.updateInterviewStatus);
+  const updateInterviewStatus = useMutation(
+    api.interviews.updateInterviewStatus
+  );
 
   const interview = useQuery(api.interviews.getInterviewByStreamCallId, {
     streamCallId: call?.id || "",

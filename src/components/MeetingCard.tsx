@@ -2,7 +2,13 @@ import useMeetingActions from "@/hooks/useMeetingActions";
 import { Doc } from "../../convex/_generated/dataModel";
 import { getMeetingStatus } from "@/lib/utils";
 import { format } from "date-fns";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import { CalendarIcon } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -13,7 +19,10 @@ function MeetingCard({ interview }: { interview: Interview }) {
   const { joinMeeting } = useMeetingActions();
 
   const status = getMeetingStatus(interview);
-  const formattedDate = format(new Date(interview.startTime), "EEEE, MMMM d · h:mm a");
+  const formattedDate = format(
+    new Date(interview.startTime),
+    "EEEE, MMMM d · h:mm a"
+  );
 
   return (
     <Card>
@@ -26,23 +35,36 @@ function MeetingCard({ interview }: { interview: Interview }) {
 
           <Badge
             variant={
-              status === "live" ? "default" : status === "upcoming" ? "secondary" : "outline"
+              status === "live"
+                ? "default"
+                : status === "upcoming"
+                  ? "secondary"
+                  : "outline"
             }
           >
-            {status === "live" ? "Live Now" : status === "upcoming" ? "Upcoming" : "Completed"}
+            {status === "live"
+              ? "Live Now"
+              : status === "upcoming"
+                ? "Upcoming"
+                : "Completed"}
           </Badge>
         </div>
 
         <CardTitle>{interview.title}</CardTitle>
 
         {interview.description && (
-          <CardDescription className="line-clamp-2">{interview.description}</CardDescription>
+          <CardDescription className="line-clamp-2">
+            {interview.description}
+          </CardDescription>
         )}
       </CardHeader>
 
       <CardContent>
         {status === "live" && (
-          <Button className="w-full" onClick={() => joinMeeting(interview.streamCallId)}>
+          <Button
+            className="w-full"
+            onClick={() => joinMeeting(interview.streamCallId)}
+          >
             Join Meeting
           </Button>
         )}

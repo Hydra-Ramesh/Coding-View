@@ -137,7 +137,8 @@ export const CODING_QUESTIONS: CodeQuestion[] = [
       {
         input: "x = 121",
         output: "true",
-        explanation: "121 reads as 121 from left to right and from right to left.",
+        explanation:
+          "121 reads as 121 from left to right and from right to left.",
       },
       {
         input: "x = -121",

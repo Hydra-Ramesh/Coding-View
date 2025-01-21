@@ -1,5 +1,6 @@
-import { QuickActionType } from "../constants";
+import { QuickActionType } from "@/constants";
 import { Card } from "./ui/card";
+
 
 // some weird tw bug, but this is how it works
 // from-orange-500/10 via-orange-500/5 to-transparent
@@ -7,7 +8,13 @@ import { Card } from "./ui/card";
 // from-purple-500/10 via-purple-500/5 to-transparent
 // from-primary/10 via-primary/5 to-transparent
 
-function ActionCard({ action, onClick }: { action: QuickActionType; onClick: () => void }) {
+function ActionCard({
+  action,
+  onClick,
+}: {
+  action: QuickActionType;
+  onClick: () => void;
+}) {
   return (
     <Card
       className="group relative overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
@@ -33,7 +40,9 @@ function ActionCard({ action, onClick }: { action: QuickActionType; onClick: () 
             <h3 className="font-semibold text-xl group-hover:text-primary transition-colors">
               {action.title}
             </h3>
-            <p className="text-sm text-muted-foreground">{action.description}</p>
+            <p className="text-sm text-muted-foreground">
+              {action.description}
+            </p>
           </div>
         </div>
       </div>

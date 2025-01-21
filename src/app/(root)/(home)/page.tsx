@@ -74,7 +74,9 @@ export default function Home() {
         <>
           <div>
             <h1 className="text-3xl font-bold">Your Interviews</h1>
-            <p className="text-muted-foreground mt-1">View and join your scheduled interviews</p>
+            <p className="text-muted-foreground mt-1">
+              View and join your scheduled interviews
+            </p>
           </div>
 
           <div className="mt-8">

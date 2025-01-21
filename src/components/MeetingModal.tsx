@@ -11,7 +11,12 @@ interface MeetingModalProps {
   isJoinMeeting: boolean;
 }
 
-function MeetingModal({ isOpen, onClose, title, isJoinMeeting }: MeetingModalProps) {
+function MeetingModal({
+  isOpen,
+  onClose,
+  title,
+  isJoinMeeting,
+}: MeetingModalProps) {
   const [meetingUrl, setMeetingUrl] = useState("");
   const { createInstantMeeting, joinMeeting } = useMeetingActions();
 
@@ -48,7 +53,10 @@ function MeetingModal({ isOpen, onClose, title, isJoinMeeting }: MeetingModalPro
             <Button variant="outline" onClick={onClose}>
               Cancel
             </Button>
-            <Button onClick={handleStart} disabled={isJoinMeeting && !meetingUrl.trim()}>
+            <Button
+              onClick={handleStart}
+              disabled={isJoinMeeting && !meetingUrl.trim()}
+            >
               {isJoinMeeting ? "Join Meeting" : "Start Meeting"}
             </Button>
           </div>

@@ -59,7 +59,8 @@ function InterviewScheduleUI() {
     setIsCreating(true);
 
     try {
-      const { title, description, date, time, candidateId, interviewerIds } = formData;
+      const { title, description, date, time, candidateId, interviewerIds } =
+        formData;
       const [hours, minutes] = time.split(":");
       const meetingDate = new Date(date);
       meetingDate.setHours(parseInt(hours), parseInt(minutes), 0);
@@ -137,7 +138,9 @@ function InterviewScheduleUI() {
         {/* HEADER INFO */}
         <div>
           <h1 className="text-3xl font-bold">Interviews</h1>
-          <p className="text-muted-foreground mt-1">Schedule and manage interviews</p>
+          <p className="text-muted-foreground mt-1">
+            Schedule and manage interviews
+          </p>
         </div>
 
         {/* DIALOG */}
@@ -158,7 +161,9 @@ function InterviewScheduleUI() {
                 <Input
                   placeholder="Interview title"
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
                 />
               </div>
 
@@ -168,7 +173,9 @@ function InterviewScheduleUI() {
                 <Textarea
                   placeholder="Interview description"
                   value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, description: e.target.value })
+                  }
                   rows={3}
                 />
               </div>
@@ -178,14 +185,19 @@ function InterviewScheduleUI() {
                 <label className="text-sm font-medium">Candidate</label>
                 <Select
                   value={formData.candidateId}
-                  onValueChange={(candidateId) => setFormData({ ...formData, candidateId })}
+                  onValueChange={(candidateId) =>
+                    setFormData({ ...formData, candidateId })
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select candidate" />
                   </SelectTrigger>
                   <SelectContent>
                     {candidates.map((candidate) => (
-                      <SelectItem key={candidate.clerkId} value={candidate.clerkId}>
+                      <SelectItem
+                        key={candidate.clerkId}
+                        value={candidate.clerkId}
+                      >
                         <UserInfo user={candidate} />
                       </SelectItem>
                     ))}
@@ -221,7 +233,10 @@ function InterviewScheduleUI() {
                     </SelectTrigger>
                     <SelectContent>
                       {availableInterviewers.map((interviewer) => (
-                        <SelectItem key={interviewer.clerkId} value={interviewer.clerkId}>
+                        <SelectItem
+                          key={interviewer.clerkId}
+                          value={interviewer.clerkId}
+                        >
                           <UserInfo user={interviewer} />
                         </SelectItem>
                       ))}
@@ -238,7 +253,9 @@ function InterviewScheduleUI() {
                   <Calendar
                     mode="single"
                     selected={formData.date}
-                    onSelect={(date) => date && setFormData({ ...formData, date })}
+                    onSelect={(date) =>
+                      date && setFormData({ ...formData, date })
+                    }
                     disabled={(date) => date < new Date()}
                     className="rounded-md border"
                   />
@@ -301,7 +318,9 @@ function InterviewScheduleUI() {
           </div>
         </div>
       ) : (
-        <div className="text-center py-12 text-muted-foreground">No interviews scheduled</div>
+        <div className="text-center py-12 text-muted-foreground">
+          No interviews scheduled
+        </div>
       )}
     </div>
   );

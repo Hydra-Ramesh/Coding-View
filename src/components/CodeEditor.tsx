@@ -1,15 +1,27 @@
 import { CODING_QUESTIONS, LANGUAGES } from "@/constants";
 import { useState } from "react";
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "./ui/resizable";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "./ui/resizable";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { AlertCircleIcon, BookIcon, LightbulbIcon } from "lucide-react";
 import Editor from "@monaco-editor/react";
 
 function CodeEditor() {
   const [selectedQuestion, setSelectedQuestion] = useState(CODING_QUESTIONS[0]);
-  const [language, setLanguage] = useState<"javascript" | "python" | "java">(LANGUAGES[0].id);
+  const [language, setLanguage] = useState<"javascript" | "python" | "java">(
+    LANGUAGES[0].id
+  );
   const [code, setCode] = useState(selectedQuestion.starterCode[language]);
 
   const handleQuestionChange = (questionId: string) => {
@@ -18,13 +30,18 @@ function CodeEditor() {
     setCode(question.starterCode[language]);
   };
 
-  const handleLanguageChange = (newLanguage: "javascript" | "python" | "java") => {
+  const handleLanguageChange = (
+    newLanguage: "javascript" | "python" | "java"
+  ) => {
     setLanguage(newLanguage);
     setCode(selectedQuestion.starterCode[newLanguage]);
   };
 
   return (
-    <ResizablePanelGroup direction="vertical" className="min-h-[calc-100vh-4rem-1px]">
+    <ResizablePanelGroup
+      direction="vertical"
+      className="min-h-[calc-100vh-4rem-1px]"
+    >
       {/* QUESTION SECTION */}
       <ResizablePanel>
         <ScrollArea className="h-full">
@@ -43,7 +60,10 @@ function CodeEditor() {
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Select value={selectedQuestion.id} onValueChange={handleQuestionChange}>
+                  <Select
+                    value={selectedQuestion.id}
+                    onValueChange={handleQuestionChange}
+                  >
                     <SelectTrigger className="w-[180px]">
                       <SelectValue placeholder="Select question" />
                     </SelectTrigger>
@@ -97,7 +117,9 @@ function CodeEditor() {
                 </CardHeader>
                 <CardContent className="text-sm leading-relaxed">
                   <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <p className="whitespace-pre-line">{selectedQuestion.description}</p>
+                    <p className="whitespace-pre-line">
+                      {selectedQuestion.description}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -113,7 +135,9 @@ function CodeEditor() {
                     <div className="p-4 space-y-4">
                       {selectedQuestion.examples.map((example, index) => (
                         <div key={index} className="space-y-2">
-                          <p className="font-medium text-sm">Example {index + 1}:</p>
+                          <p className="font-medium text-sm">
+                            Example {index + 1}:
+                          </p>
                           <ScrollArea className="h-full w-full rounded-md">
                             <pre className="bg-muted/50 p-3 rounded-lg text-sm font-mono">
                               <div>Input: {example.input}</div>
